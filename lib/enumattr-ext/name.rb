@@ -48,7 +48,7 @@ module Enumattr
       module Decorator
         def name
           default = @extras.first || key.to_s
-          scope = ["#{@container.base.name}.#{@container.enumattr}"]
+          scope = ["enumattr.#{@container.base.name}.#{@container.enumattr}"]
           I18n.translate(key, :scope => scope, :default => default)
         end
       end
