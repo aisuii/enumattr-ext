@@ -22,6 +22,11 @@ module Enumattr
               enumattrs[:#{enumattr_name}].enums.map(&:name)
             end
 
+            def self.#{method_prefix}name(key)
+              enum = enumattrs[:#{enumattr_name}].enum_by_key(key)
+              enum && enum.name
+            end
+
             def self.#{method_prefix}options
               enumattrs[:#{enumattr_name}].enums.map do |enum|
                 [ enum.name, enum.value ]

@@ -1,0 +1,9 @@
+# -*- encoding: utf-8 -*-
+
+en:
+  enumattr:
+    User:
+      status:
+        active:   activated status
+        inactive: inacitive status
+        deleted:  deleted status
