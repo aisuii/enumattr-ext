@@ -1,6 +1,6 @@
 # Enumattr::Ext
 
-TODO: Write a gem description
+enumattr (https://github.com/aisuii/enumattr) extensions.
 
 ## Installation
 
@@ -18,7 +18,58 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### example:
+
+Ruby code:
+
+    class User
+      include Enumattr::Base
+      include Enumattr::Ext::Name
+
+      attr_accessor :status
+
+      enumattr :status do
+        enum :active,   1
+        enum :inactive, 2
+        enum :deleted,  3
+      end
+
+      def initialize(status)
+        @status = status
+      end
+    end
+
+I18n locales:
+
+    ja:
+      enumattr:
+        User:
+          status:
+            active:   有効
+            inactive: 無効
+            deleted:  削除
+
+and
+
+    I18n.load_path = ['path/to/locales.yml']
+    I18n.locale = :ja
+
+then
+
+    User.status_names
+    # => ["有効", "無効", "削除"]
+
+    User.status_name(:active)
+    # => "有効"
+
+    User.status_options
+    #=> [["有効", 1], ["無効", 2], ["削除", 3]]
+
+    user = User.new(1)
+    user.status_name
+    # => "有効"
+
+see also: https://github.com/aisuii/enumattr
 
 ## Contributing
 
