@@ -1,7 +1,10 @@
+# -*- encoding: utf-8 -*-
+require "active_support/core_ext"
+require "enumattr"
 require "enumattr-ext/version"
 
 module Enumattr
   module Ext
-    # Your code goes here...
+    autoload :Name, 'enumattr-ext/name'
   end
 end

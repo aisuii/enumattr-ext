@@ -14,4 +14,10 @@ Gem::Specification.new do |gem|
   gem.name          = "enumattr-ext"
   gem.require_paths = ["lib"]
   gem.version       = Enumattr::Ext::VERSION
+
+  gem.add_runtime_dependency('enumattr', '>= 0.0.5')
+  gem.add_runtime_dependency('i18n', '>= 0.6.0')
+  gem.add_runtime_dependency('activesupport', '>= 3.2.3')
+
+  gem.add_development_dependency('rspec')
 end
